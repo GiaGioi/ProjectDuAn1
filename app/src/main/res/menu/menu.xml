@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/ic_Dog"
+        android:title="@string/dog"
+        android:icon="@mipmap/ic_dog"/>
+
+    <item android:id="@+id/ic_Cat"
+        android:title="@string/cat"
+        android:icon="@mipmap/ic_dog"/>
+
+
+    <item android:id="@+id/ic_heath"
+        android:title="@string/heath"
+        android:icon="@mipmap/ic_dog"/>
+
+
+    <item android:id="@+id/ic_gt"
+        android:title="@string/gioithieu"
+        android:icon="@mipmap/ic_dog"/>
+
+    <item android:id="@+id/ic_thoat"
+        android:title="@string/thoat"
+        android:icon="@mipmap/ic_dog"/>
+</menu>

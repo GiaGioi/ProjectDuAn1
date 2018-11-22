@@ -1,9 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".HealthActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <ImageView
+        android:src="@drawable/addpet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:counterMaxLength="50">
+    <EditText
+        android:id="@+id/edNamePet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/NamePet"
+        />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:counterMaxLength="20">
+    <EditText
+        android:id="@+id/edChungLoai"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/chungloai"
+        />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:counterMaxLength="10">
+        <EditText
+            android:id="@+id/edSoLuong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/soluong"
+            />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:counterMaxLength="5">
+        <EditText
+            android:id="@+id/edGioiTinh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/gioitinh"
+            />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:counterMaxLength="50">
+        <EditText
+            android:id="@+id/edTinhTrang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/tinhtrang"
+            />
+    </android.support.design.widget.TextInputLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:background="@drawable/backgroud_procces"
+            android:textColor="@color/cardview_light_background"
+            android:text="@string/them"
+            android:textAllCaps="false"
+            android:layout_height="wrap_content" />
+        <Button
+            android:layout_width="wrap_content"
+            android:background="@drawable/backgroud_procces"
+            android:textColor="@color/cardview_light_background"
+            android:layout_marginLeft="8dp"
+            android:text="@string/huy"
+            android:textAllCaps="false"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

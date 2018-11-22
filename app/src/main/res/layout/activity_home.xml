@@ -1,9 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_marginTop="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="56dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/layout_Dog"
+                    android:gravity="center_horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imgdog"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:src="@drawable/images"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/toolbarhome" />
+
+                    <TextView
+                        android:id="@+id/tvDog"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dog"
+                        android:textAllCaps="false"
+                        android:textColor="@color/textcolor"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_Cat"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imgcat"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:src="@drawable/images1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cat"
+                        android:textAllCaps="false"
+                        android:textColor="@color/textcolor"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_marginTop="56dp"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/layout_heath"
+                    android:gravity="center_horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imgsuckhoe"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:src="@drawable/suckhoe"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Sức khỏe"
+                        android:textAllCaps="false"
+                        android:textColor="@color/textcolor"
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toTopOf="@+id/imgsuckhoe" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layout_vaccin"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imgtiemphong"
+                        android:layout_width="75dp"
+                        android:layout_height="75dp"
+                        android:src="@drawable/tiemphong"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tiêm phòng"
+                        android:textAllCaps="false"
+                        android:textColor="@color/textcolor"
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toTopOf="@+id/imgtiemphong" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+        <android.support.design.widget.NavigationView
+            app:itemTextColor="@color/colorOrgin"
+            android:id="@+id/navigation"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:menu="@menu/menu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        </android.support.design.widget.NavigationView>
+
+    </android.support.v4.widget.DrawerLayout>
+
+
+
+</LinearLayout>

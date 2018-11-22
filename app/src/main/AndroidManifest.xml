@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".FlashActivity" >
+        <activity android:name=".MainActivity" />
+        <activity android:name=".FlashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,13 +19,16 @@
         </activity>
         <activity android:name=".SignInActivity" />
         <activity android:name=".SignUpActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".HomeActivity"></activity>
         <activity android:name=".AddUserActivity" />
         <activity android:name=".ChangePasswordActivity" />
         <activity android:name=".AddDogActivity" />
         <activity android:name=".AddCatActivity" />
         <activity android:name=".HealthActivity" />
-        <activity android:name=".VaccinationActivity"></activity>
+        <activity android:name=".VaccinationActivity" />
+        <activity android:name=".DogActivity" />
+        <activity android:name=".EditDogActivity" />
+        <activity android:name=".CatActivity"></activity>
     </application>
 
 </manifest>

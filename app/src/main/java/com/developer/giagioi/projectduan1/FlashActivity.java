@@ -20,7 +20,7 @@ public class FlashActivity extends AppCompatActivity {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                startActivity(new Intent(FlashActivity.this, SignUpActivity.class));
+                startActivity(new Intent(FlashActivity.this, SignInActivity.class));
                 finish();
             }
         }, 1500);

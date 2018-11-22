@@ -1,3 +1,30 @@
 <resources>
-    <string name="app_name">ProjectDuAn1</string>
+    <string name="app_name">Quản lí vật nuôi</string>
+    <string name="SignUp">Sign Up</string>
+    <string name="SignIn">Sign In</string>
+    <string name="UserSignUp">User Sign Up</string>
+    <string name="remember"><![CDATA[I agree with the terms & Condition]]></string>
+    <string name="procces"><![CDATA[PROCEED   -->]]></string>
+    <string name="dog">Dog</string>
+    <string name="cat">Cat</string>
+    <string name="heath">Sức khỏe</string>
+    <string name="gioithieu">Giới thiệu</string>
+    <string name="thoat">Thoát</string>
+    <string name="luulai">Lưu lại</string>
+    <string name="NamePet">Tên vật nuôi</string>
+    <string name="chungloai">Chủng loại</string>
+    <string name="soluong">Số lượng</string>
+    <string name="gioitinh">Giới tính</string>
+    <string name="tinhtrang">Tình trạng sức khỏe</string>
+    <string name="them">Thêm</string>
+    <string name="huy">Hủy</string>
+    <string name="tiemphong">Tiêm phòng</string>
+    <string name="loaithucan">Loại thức ăn</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="addpet">Thêm vật nuôi</string>
+    <string name="IDpet">Tên vật nuôi</string>
+    <string name="Namepet">Chủng loại</string>
+    <string name="save">Lưu lại</string>
+    <string name="Themvatnuoi">Thêm vật nuôi</string>
+    <string name="add">Thêm thành công</string>
 </resources>
