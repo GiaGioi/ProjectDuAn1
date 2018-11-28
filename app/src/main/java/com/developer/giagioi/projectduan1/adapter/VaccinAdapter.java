@@ -11,33 +11,33 @@ import android.widget.TextView;
 
 import com.developer.giagioi.projectduan1.R;
 import com.developer.giagioi.projectduan1.model.AddDog;
+import com.developer.giagioi.projectduan1.model.Vaccin;
 import com.developer.giagioi.projectduan1.sqlitedao.AddDogDAO;
+import com.developer.giagioi.projectduan1.sqlitedao.VaccinDAO;
 
 import java.util.List;
 
-
-public class AddDogAdapter extends BaseAdapter {
-    List<AddDog> addDogs;
+public class VaccinAdapter extends BaseAdapter {
+    List<Vaccin> vaccins;
     public Activity context;
     public LayoutInflater inflater;
-    AddDogDAO addDogDAO;
+    VaccinDAO vaccinDAO;
 
-    public AddDogAdapter(Activity context, List<AddDog> addDogs) {
-        this.addDogs = addDogs;
+    public VaccinAdapter(Activity context, List<Vaccin> vaccins) {
+        this.vaccins = vaccins;
         this.context = context;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        addDogDAO = new AddDogDAO(context);
+        vaccinDAO = new VaccinDAO(context);
     }
-
 
     @Override
     public int getCount() {
-        return addDogs.size();
+        return vaccins.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return addDogs.get(position);
+        return vaccins.get(position);
     }
 
     @Override
@@ -47,9 +47,9 @@ public class AddDogAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+       AddDogAdapter.ViewHolder holder;
         if (convertView == null) {
-            holder = new ViewHolder();
+            holder = new AddDogAdapter.ViewHolder();
             convertView = inflater.inflate(R.layout.item_dog, null);
             holder.img = (ImageView) convertView.findViewById(R.id.imgAnh);
             holder.tvIDPet = (TextView) convertView.findViewById(R.id.tvUser);
@@ -58,37 +58,34 @@ public class AddDogAdapter extends BaseAdapter {
             holder.imgDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    addDogDAO.deleteAddDogByID(addDogs.get(position).getIDPet());
-                    addDogs.remove(position);
+                    vaccinDAO.deleteVaccin((vaccins.get(position).getIDPet()));
+                    vaccins.remove(position);
                     notifyDataSetChanged();
                 }
             });
             convertView.setTag(holder);
 
         } else
-            holder = (ViewHolder) convertView.getTag();
-        AddDog _entry = (AddDog) addDogs.get(position);
+            holder = (AddDogAdapter.ViewHolder) convertView.getTag();
+        Vaccin _entry = (Vaccin) vaccins.get(position);
         holder.img.setImageResource(R.drawable.images);
-        holder.tvIDPet.setText(_entry.getNamePet());
-        holder.tvNamePet.setText(_entry.getTinhTrang());
+        holder.tvIDPet.setText(_entry.getTenVatNuoi());
+        holder.tvNamePet.setText(_entry.getLoaiThucAn());
         return convertView;
-
     }
-
     public static class ViewHolder {
         ImageView img;
         TextView tvIDPet;
         TextView tvNamePet;
         ImageView imgDelete;
     }
-
     @Override
     public void notifyDataSetChanged() {
         super.notifyDataSetChanged();
     }
 
-    public void changeDataset(List<AddDog> items){
-        this.addDogs = items;
+    public void changeDataset(List<Vaccin> items){
+        this.vaccins = items;
         notifyDataSetChanged();
     }
 }

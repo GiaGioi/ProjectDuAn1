@@ -1,4 +1,4 @@
-package com.developer.giagioi.projectduan1;
+package com.developer.giagioi.projectduan1.ui;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,12 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.developer.giagioi.projectduan1.R;
 import com.developer.giagioi.projectduan1.model.AddDog;
 import com.developer.giagioi.projectduan1.sqlitedao.AddDogDAO;
 
 import java.util.ArrayList;
 
-public class AddDogActivity extends AppCompatActivity {
+public class AddCatActivity extends AppCompatActivity {
 
     private EditText edtIDPet;
     private EditText edtNamePet;
@@ -24,15 +25,13 @@ public class AddDogActivity extends AppCompatActivity {
     private Button btnAdd;
     private ArrayList<AddDog> arrayList;
     private AddDogDAO addDogDAO;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_dog);
+        setContentView(R.layout.activity_add_cat);
         init();
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
+        if(actionBar!=null){
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
     }
@@ -52,10 +51,10 @@ public class AddDogActivity extends AppCompatActivity {
                         edtSoluong.getText().length() == 0 ||
                         edtGioitinh.getText().length() == 0 ||
                         edtTinhtrang.getText().length() == 0) {
-                    Toast.makeText(AddDogActivity.this, "Bạn phải nhập đủ thông tin ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddCatActivity.this, "Bạn phải nhập đủ thông tin ", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    addDogDAO = new AddDogDAO(AddDogActivity.this);
+                    addDogDAO = new AddDogDAO(AddCatActivity.this);
                     AddDog addDog = new AddDog(edtIDPet.getText().toString(),
                             edtNamePet.getText().toString(),
                             Integer.parseInt(edtSoluong.getText().toString()),
@@ -91,5 +90,4 @@ public class AddDogActivity extends AppCompatActivity {
         }
         return check;
     }
-
 }

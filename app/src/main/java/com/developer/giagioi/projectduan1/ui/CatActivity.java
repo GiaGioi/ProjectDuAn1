@@ -1,4 +1,4 @@
-package com.developer.giagioi.projectduan1;
+package com.developer.giagioi.projectduan1.ui;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.developer.giagioi.projectduan1.R;
 import com.developer.giagioi.projectduan1.adapter.AddDogAdapter;
 import com.developer.giagioi.projectduan1.model.AddDog;
 import com.developer.giagioi.projectduan1.sqlitedao.AddDogDAO;
@@ -65,7 +66,7 @@ public class CatActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.itemthem){
-            startActivity(new Intent(CatActivity.this,AddDogActivity.class));
+            startActivity(new Intent(CatActivity.this,AddCatActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

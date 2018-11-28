@@ -1,4 +1,4 @@
-package com.developer.giagioi.projectduan1;
+package com.developer.giagioi.projectduan1.ui;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,8 +10,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.developer.giagioi.projectduan1.R;
 import com.developer.giagioi.projectduan1.sqlitedao.UserDAO;
-import com.developer.giagioi.projectduan1.model.User;
 
 public class SignInActivity extends AppCompatActivity {
 

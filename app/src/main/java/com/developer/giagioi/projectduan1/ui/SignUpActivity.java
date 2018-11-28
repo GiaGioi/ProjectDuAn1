@@ -1,4 +1,4 @@
-package com.developer.giagioi.projectduan1;
+package com.developer.giagioi.projectduan1.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+
+import com.developer.giagioi.projectduan1.R;
 
 public class SignUpActivity extends AppCompatActivity {
 

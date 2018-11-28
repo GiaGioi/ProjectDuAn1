@@ -1,18 +1,16 @@
-package com.developer.giagioi.projectduan1;
+package com.developer.giagioi.projectduan1.ui;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
+import com.developer.giagioi.projectduan1.R;
 import com.developer.giagioi.projectduan1.adapter.AddDogAdapter;
 import com.developer.giagioi.projectduan1.model.AddDog;
 import com.developer.giagioi.projectduan1.sqlitedao.AddDogDAO;
