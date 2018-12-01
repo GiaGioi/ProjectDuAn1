@@ -5,89 +5,86 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HealthActivity">
+    tools:context=".ui.HealthActivity">
 
 
     <ImageView
-        android:src="@drawable/addpet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="223dp"
+        android:src="@drawable/addpet" />
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:counterMaxLength="50">
-    <EditText
-        android:id="@+id/edNamePet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/NamePet"
-        />
+
+        <EditText
+            android:id="@+id/edNamePet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/NamePet" />
     </android.support.design.widget.TextInputLayout>
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:counterMaxLength="20">
-    <EditText
-        android:id="@+id/edChungLoai"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/chungloai"
-        />
+
+        <EditText
+            android:id="@+id/edChungLoai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/chungloai" />
     </android.support.design.widget.TextInputLayout>
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:counterMaxLength="10">
+
         <EditText
             android:id="@+id/edSoLuong"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/soluong"
-            />
+            android:inputType="number" />
     </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:counterMaxLength="5">
-        <EditText
-            android:id="@+id/edGioiTinh"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/gioitinh"
-            />
-    </android.support.design.widget.TextInputLayout>
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:counterMaxLength="50">
+
         <EditText
             android:id="@+id/edTinhTrang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/tinhtrang"
-            />
+            android:hint="@string/tinhtrang" />
     </android.support.design.widget.TextInputLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_height="wrap_content">
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
         <Button
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@drawable/backgroud_procces"
-            android:textColor="@color/cardview_light_background"
             android:text="@string/them"
             android:textAllCaps="false"
-            android:layout_height="wrap_content" />
+            android:textColor="@color/cardview_light_background" />
+
         <Button
             android:layout_width="wrap_content"
-            android:background="@drawable/backgroud_procces"
-            android:textColor="@color/cardview_light_background"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
+            android:background="@drawable/backgroud_procces"
             android:text="@string/huy"
             android:textAllCaps="false"
-            android:layout_height="wrap_content" />
+            android:textColor="@color/cardview_light_background" />
     </LinearLayout>
 
 </LinearLayout>

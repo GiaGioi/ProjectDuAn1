@@ -6,6 +6,9 @@ public class Vaccin {
     private int soLuong;
 
 
+    public Vaccin(){
+
+    }
     public Vaccin(String tenVatNuoi, String loaiThucAn, int soLuong) {
         this.tenVatNuoi = tenVatNuoi;
         this.loaiThucAn = loaiThucAn;

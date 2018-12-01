@@ -131,20 +131,20 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_info, menu);
+        getMenuInflater().inflate(R.menu.menu_user, menu);
         return super.onCreateOptionsMenu(menu);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.itsetting:
-                Toast.makeText(this, "Setting", Toast.LENGTH_SHORT).show();
+            case R.id.itThemTK:
+                startActivity(new Intent(HomeActivity.this,AddUserActivity.class));
                 break;
-            case R.id.itgioithieu:
-                startActivity(new Intent(HomeActivity.this,InfoActivity.class));
+            case R.id.itDMK:
+                startActivity(new Intent(HomeActivity.this,ChangePasswordActivity.class));
                 break;
-            case R.id.ithotro:
-                Toast.makeText(this, "Tính năng sắp ra mắt", Toast.LENGTH_SHORT).show();
+            case R.id.itDX:
+                startActivity(new Intent(HomeActivity.this,SignInActivity.class));
                 break;
         }
         return true;

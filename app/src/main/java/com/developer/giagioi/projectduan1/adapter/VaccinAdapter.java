@@ -58,7 +58,7 @@ public class VaccinAdapter extends BaseAdapter {
             holder.imgDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    vaccinDAO.deleteVaccin((vaccins.get(position).getIDPet()));
+                    vaccinDAO.deleteVaccin(String.valueOf((vaccins.get(position))));
                     vaccins.remove(position);
                     notifyDataSetChanged();
                 }

@@ -4,14 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".HealthActivity">
+    tools:context=".ui.VaccinationActivity">
 
      <ImageView
-         android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/health" />
-
+         android:id="@+id/image"
+        android:layout_width="match_parent"
+         android:src="@drawable/health"
+        android:layout_height="223dp"/>
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -36,8 +35,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/tiemphong"
             android:textSize="20sp" />
-
         <Switch
+            android:id="@+id/btnswitch"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -73,17 +72,17 @@
 
         <ImageView
             android:id="@+id/linkanh"
-            android:src="@drawable/linkanh"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="50dp"
+            android:layout_weight="0.5"
+            android:layout_height="50dp" />
+        <Button
+            android:textColor="@color/textcolor1"
+            android:id="@+id/btnchosepicture"
+            android:layout_width="150dp"
+            android:textAllCaps="false"
+            android:text="Choose picture"
+            android:background="@drawable/backgroud_procces"
             android:layout_height="wrap_content" />
-        <TextView
-            android:textSize="20sp"
-            android:id="@+id/edTinhTrang"
-            android:layout_width="0dp"
-            android:layout_weight="05"
-            android:layout_height="wrap_content"
-            android:hint="@string/tinhtrang" />
     </LinearLayout>
 
     <LinearLayout
@@ -98,6 +97,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/backgroud_procces"
             android:text="@string/them"
+            android:onClick="addVaccin"
             android:textAllCaps="false"
             android:textColor="@color/cardview_light_background" />
 

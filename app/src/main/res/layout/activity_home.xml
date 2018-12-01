@@ -2,37 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Add_User"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.HomeActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarhome"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"></android.support.v7.widget.Toolbar>
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <LinearLayout
-            android:padding="10dp"
-            android:layout_marginTop="30sp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_marginTop="30sp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
             <RelativeLayout
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="56dp"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginTop="56dp"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:id="@+id/layout_Dog"
-                    android:gravity="center_horizontal"
-                    android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical">
 
                     <ImageView
@@ -56,11 +62,11 @@
 
                 <LinearLayout
                     android:id="@+id/layout_Cat"
-                    android:layout_centerVertical="true"
-                    android:gravity="center_horizontal"
-                    android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical">
 
                     <ImageView
@@ -80,19 +86,20 @@
                 </LinearLayout>
 
             </RelativeLayout>
+
             <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="56dp"
                 android:layout_marginBottom="20dp"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent">
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:id="@+id/layout_heath"
-                    android:gravity="center_horizontal"
-                    android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical">
 
                     <ImageView
@@ -114,13 +121,14 @@
                         app:layout_constraintTop_toTopOf="@+id/imgsuckhoe" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/layout_vaccin"
-                    android:layout_centerVertical="true"
-                    android:gravity="center_horizontal"
-                    android:layout_centerHorizontal="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_horizontal"
                     android:orientation="vertical">
 
                     <ImageView
@@ -144,19 +152,19 @@
             </RelativeLayout>
 
         </LinearLayout>
+
         <android.support.design.widget.NavigationView
-            app:itemTextColor="@color/colorOrgin"
             android:id="@+id/navigation"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
-            app:menu="@menu/menu"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            app:itemTextColor="@color/colorOrgin"
+            app:menu="@menu/menu">
 
         </android.support.design.widget.NavigationView>
 
     </android.support.v4.widget.DrawerLayout>
-
 
 
 </LinearLayout>

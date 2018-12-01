@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     style="@style/Add_User"
     android:orientation="vertical"
-    tools:context=".SignUpActivity">
+    tools:context=".ui.SignUpActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/login2" />
+        android:src="@drawable/login2"
+        android:contentDescription="TODO" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -83,7 +84,10 @@
             android:hint="User Name"
             android:imeOptions="actionNext"
             android:text="admin"
-            android:textSize="15dp" />
+            android:textSize="15sp"
+            android:autofillHints=""
+            android:inputType=""
+            android:drawableStart="@drawable/username" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -128,7 +132,7 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/pass"
             android:drawablePadding="20dp"
-            android:hint="Pass Word"
+            android:hint="PassWord"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
             android:text="admin123"

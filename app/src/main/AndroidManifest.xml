@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.developer.giagioi.projectduan1">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="EXTERNAL_CONTENT_URI"></uses-permission>
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,26 +13,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".FlashActivity">
+        <activity android:name=".ui.MainActivity" />
+        <activity android:name=".ui.FlashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignInActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".AddUserActivity" />
-        <activity android:name=".ChangePasswordActivity" />
-        <activity android:name=".AddDogActivity" />
-        <activity android:name=".AddCatActivity" />
-        <activity android:name=".HealthActivity" />
-        <activity android:name=".VaccinationActivity" />
-        <activity android:name=".DogActivity" />
-        <activity android:name=".EditDogActivity" />
-        <activity android:name=".CatActivity"></activity>
+        <activity android:name=".ui.SignInActivity" />
+        <activity android:name=".ui.SignUpActivity" />
+        <activity
+            android:name=".ui.HomeActivity"
+            android:theme="@style/Add_User" />
+        <activity android:name=".ui.AddUserActivity" />
+        <activity android:name=".ui.ChangePasswordActivity" />
+        <activity android:name=".ui.AddDogActivity" />
+        <activity android:name=".ui.AddCatActivity" />
+        <activity android:name=".ui.HealthActivity" />
+        <activity android:name=".ui.VaccinationActivity" />
+        <activity android:name=".ui.DogActivity" />
+        <activity android:name=".ui.EditDogActivity" />
+        <activity android:name=".ui.CatActivity" />
+        <activity android:name=".ui.AddVaccinActivity" />
+        <activity android:name=".ui.GioithieuActivity" />
+        <activity android:name=".ui.AddHealthActivity" />
+        <activity android:name=".ui.InfoActivity"></activity>
     </application>
 
 </manifest>

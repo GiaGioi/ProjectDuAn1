@@ -5,15 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddUserActivity">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbaruser"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary">
-
-    </android.support.v7.widget.Toolbar>
+    tools:context=".ui.AddUserActivity">
 
     <ImageView
         android:layout_gravity="center"
