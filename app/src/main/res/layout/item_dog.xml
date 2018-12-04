@@ -59,7 +59,7 @@
                 android:layout_marginLeft="50dp"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_clear_back_24dp" />
+                app:srcCompat="@drawable/ic_clear_back_24dp" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

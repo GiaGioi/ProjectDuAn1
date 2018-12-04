@@ -32,6 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Mật khẩu"
+        android:inputType="textPassword"
         android:textColor="#F000"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="336dp" />
@@ -41,6 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nhập lại mật khẩu"
+        android:inputType="textPassword"
         android:textColor="#F000"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="279dp" />

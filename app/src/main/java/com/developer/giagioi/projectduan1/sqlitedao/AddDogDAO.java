@@ -16,7 +16,7 @@ public class AddDogDAO {
     private SQLiteDatabase db;
     private DatabaseHelper dbHelper;
     public static final String TABLE_NAME = "AddDog";
-    public static final String SQL_ADDDOG = "CREATE TABLE AddDog (idpet text primary key, namepet text, soluong int, gioitinh text, tinhtrang text);";
+    public static final String SQL_DOG = "CREATE TABLE AddDog (idpet text primary key, namepet text, soluong int, gioitinh text, tinhtrang text);";
     public static final String TAG = "AddDogDAO";
 
     public AddDogDAO(Context context) {

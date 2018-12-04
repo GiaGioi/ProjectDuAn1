@@ -46,4 +46,9 @@
     <string name="normal_message_with_icon">Normal toast w/ icon</string>
     <string name="custom_message">sudo kill -9 everyone</string>
     <string name="hotro"><![CDATA[Hỗ trợ & phản hồi]]></string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Button text -->
+    <string name="btn_logout_from_google">Logout from Google</string>
+    <string name="btn_revoke_access">Revoke Access</string>
 </resources>

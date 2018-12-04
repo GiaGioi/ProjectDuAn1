@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.developer.giagioi.projectduan1.R;
+import com.developer.giagioi.projectduan1.model.User;
 import com.developer.giagioi.projectduan1.sqlitedao.UserDAO;
 
 public class SignInActivity extends AppCompatActivity {
@@ -36,34 +37,40 @@ public class SignInActivity extends AppCompatActivity {
         chkRememberPass = findViewById(R.id.chkRememberPass);
         loginDangnhap = findViewById(R.id.login_dangnhap);
         restore();
-//        User user = new User("admin", "admin", "admin", "Nguyễn Gia Gioi","gioingph05882@fpt.edu.vn");
-//        userDAO.insertUser(user);
+        edUserName.setText("admin");
+        edPassWord.setText("admin");
+        userDAO = new UserDAO(SignInActivity.this);
+
+        User user = new User("admin", "admin", "admin", "Nguyễn Gia Gioi","gioingph05882@fpt.edu.vn");
+        userDAO.insertUser(user);
 
         loginDangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 strUser = edUserName.getText().toString().trim();
                 strPass = edPassWord.getText().toString().trim();
-//                User us = userDAO.getUser(strUser);
+                User us = userDAO.getUser(strUser);
                 boolean check = chkRememberPass.isChecked();
 
                 if (strUser.isEmpty() || strPass.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Tên đăng nhập và mật khẩu không được bỏ trống",
                             Toast.LENGTH_SHORT).show();
                 } else {
-                    String oPass = edPassWord.getText().toString().trim();
-                    String o = edUserName.getText().toString().trim();
-                    if (edUserName !=null&&edPassWord!=null) {
+                    String oPass = us.getPassWord();
+                    String o = us.getUserName();
+                    if (userDAO.checkLogin(strUser, strPass) > 0) {
                         Toast.makeText(getApplicationContext(), "Login thành công", Toast.LENGTH_SHORT).show();
                         finish();
                         startActivity(new Intent(SignInActivity.this, HomeActivity.class));
                     }
                     if (strUser.equalsIgnoreCase("admin") && strPass.equalsIgnoreCase("admin")) {
                         rememberUser(strUser, strPass, check);
+                        Toast.makeText(getApplicationContext(), "Login thành công", Toast.LENGTH_SHORT).show();
                         finish();
                         startActivity(new Intent(SignInActivity.this, HomeActivity.class));
-                    } else if (o.equals(strUser) && oPass.equals(strPass)) {
+                    } else if(o.equals(strUser) && oPass.equals(strPass)) {
                         rememberUser(strUser, strPass, check);
+                        Toast.makeText(getApplicationContext(), "Login thành công", Toast.LENGTH_SHORT).show();
                         finish();
                         startActivity(new Intent(SignInActivity.this, HomeActivity.class));
                     } else {

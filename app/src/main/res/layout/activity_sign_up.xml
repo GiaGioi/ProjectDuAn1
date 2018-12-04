@@ -12,8 +12,14 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:contentDescription="TODO"
         android:src="@drawable/login2"
-        android:contentDescription="TODO" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -80,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/username"
-            android:drawablePadding="10dp"
+            android:drawablePadding="5dp"
             android:hint="User Name"
             android:imeOptions="actionNext"
             android:text="admin"
@@ -94,7 +100,7 @@
         android:id="@+id/textInputLayout8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="3dp"
         android:paddingEnd="5dp"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
@@ -102,36 +108,13 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp">
 
-        <EditText
-            android:id="@+id/edgmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/email"
-            android:drawablePadding="20dp"
-            android:hint="Gmail"
-            android:imeOptions="actionNext"
-            android:text="giagioi99@gmail.com"
-            android:textSize="15dp" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/textInputLayout10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:paddingEnd="5dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout8"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
 
         <EditText
             android:id="@+id/edPassWord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/pass"
-            android:drawablePadding="20dp"
+            android:drawablePadding="5dp"
             android:hint="PassWord"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
@@ -139,16 +122,26 @@
             android:textSize="15dp" />
     </android.support.design.widget.TextInputLayout>
 
-    <CheckBox
-        android:id="@+id/chkRememberPass"
-        android:layout_width="wrap_content"
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout10"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:checked="false"
-        android:text="@string/remember"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout10"
+        android:layout_marginTop="3dp"
+        android:paddingEnd="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout8"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="0dp">
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/btn_sign_in"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"/>
+
+    </android.support.design.widget.TextInputLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -156,9 +149,9 @@
         android:layout_marginTop="12dp"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/chkRememberPass"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout10"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp">
+        tools:layout_editor_absoluteX="16dp">
 
         <Button
             android:id="@+id/login_dangnhap"
@@ -169,7 +162,7 @@
             android:background="@drawable/backgroud_procces"
             android:paddingEnd="15dp"
             android:paddingLeft="15dp"
-            android:paddingTop="5dp"
+            android:paddingTop="3dp"
             android:text="@string/procces"
             android:textAllCaps="false"
             android:textColor="#ffffff"
