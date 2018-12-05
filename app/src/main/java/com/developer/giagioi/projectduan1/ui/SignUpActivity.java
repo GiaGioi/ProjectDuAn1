@@ -1,10 +1,13 @@
 package com.developer.giagioi.projectduan1.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -13,9 +16,30 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.developer.giagioi.projectduan1.R;
+import com.developer.giagioi.projectduan1.model.User;
+import com.developer.giagioi.projectduan1.sqlitedao.UserDAO;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.OptionalPendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.common.oob.SignUp;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity  {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final int RC_SIGN_IN = 007;
+
+    private GoogleApiClient mGoogleApiClient;
+    private ProgressDialog mProgressDialog;
 
     private Button btnsignin;
     private Button btnsignup;
@@ -24,8 +48,9 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText edPassWord;
     private CheckBox chkRememberPass;
     private Button loginDangnhap;
+    private Button btn_sign_in;
     private ProgressBar progressBar;
-//    private FirebaseAuth auth;
+    UserDAO userDAO;
 
 
     @Override
@@ -37,64 +62,85 @@ public class SignUpActivity extends AppCompatActivity {
         btnsignup = findViewById(R.id.btnsignup);
         edUserName = findViewById(R.id.edUserName);
         edPassWord = findViewById(R.id.edPassWord);
-        edgmail = findViewById(R.id.edgmail);
+        btn_sign_in =findViewById(R.id.btn_sign_in);
         chkRememberPass = findViewById(R.id.chkRememberPass);
         loginDangnhap = findViewById(R.id.login_dangnhap);
-//        auth = FirebaseAuth.getInstance();
+
+
         btnsignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignUpActivity.this,SignInActivity.class));
+                startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
+            }
+        });
+        btn_sign_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignUpActivity.this,GoogleActivity.class));
             }
         });
         loginDangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String email = edgmail.getText().toString().trim();
-//                String password = edPassWord.getText().toString().trim();
-//
-//                if (TextUtils.isEmpty(email)) {
-//                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                if (TextUtils.isEmpty(password)) {
-//                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                if (password.length() < 6) {
-//                    Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                progressBar.setVisibility(View.VISIBLE);
-//                //create user
-//                auth.createUserWithEmailAndPassword(email, password)
-//                        .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
-//                            @Override
-//                            public void onComplete(@NonNull Task<AuthResult> task) {
-//                                Toast.makeText(SignupActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
-//                                progressBar.setVisibility(View.GONE);
-//                                // If sign in fails, display a message to the user. If sign in succeeds
-//                                // the auth state listener will be notified and logic to handle the
-//                                // signed in user can be handled in the listener.
-//                                if (!task.isSuccessful()) {
-//                                    Toast.makeText(SignUpActivity.this, "Authentication failed." + task.getException(),
-//                                            Toast.LENGTH_SHORT).show();
-//                                } else {
-//                                    startActivity(new Intent(SignUpActivity.this, MainActivity.class));
-//                                    finish();
-//                                }
-//                            }
-//                        });
+                String username = edUserName.getText().toString().trim();
+                String password = edPassWord.getText().toString().trim();
+
+
+                if (username.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Tên đăng nhập và mật khẩu không được bỏ trống",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    String oPass = edPassWord.getText().toString().trim();
+                    String o = edUserName.getText().toString().trim();
+                    if (edUserName != null && edPassWord != null) {
+                        Toast.makeText(getApplicationContext(), "Login thành công", Toast.LENGTH_SHORT).show();
+                        finish();
+                        startActivity(new Intent(SignUpActivity.this, HomeActivity.class));
+                    }
+                    if (username.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin")) {
+                        rememberUser(username, password);
+                        finish();
+                        startActivity(new Intent(SignUpActivity.this, HomeActivity.class));
+                    } else if (o.equals(username) && oPass.equals(password)) {
+                        rememberUser(username, password);
+                        finish();
+                        startActivity(new Intent(SignUpActivity.this, HomeActivity.class));
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Tên đăng nhập và mật khẩu không đúng",
+                                Toast.LENGTH_SHORT).show();
+                    }
+
+                }
             }
         });
 
     }
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        progressBar.setVisibility(View.GONE);
-//    }
+
+    public void rememberUser(String u, String p) {
+        SharedPreferences pref = getSharedPreferences("USER_FILE", MODE_PRIVATE);
+        SharedPreferences.Editor edit = pref.edit();
+//        if (!status) {
+//            //xoa tinh trang luu tru truoc do
+//            edit.clear();
+//        } else {
+//            //luu du lieu
+//            edit.putString("USERNAME", u);
+//            edit.putString("PASSWORD", p);
+//
+//        }
+        //luu lai toan bo
+        edit.commit();
+    }
+
+    public void restore() {
+        SharedPreferences pref = getSharedPreferences("USER_FILE", MODE_PRIVATE);
+        boolean check = pref.getBoolean("REMEMBER", false);
+        if (check) {
+            String user = pref.getString("USERNAME", "");
+            String pass = pref.getString("PASSWORD", "");
+            edUserName.setText(user);
+            edPassWord.setText(pass);
+        }
+        chkRememberPass.setChecked(check);
+    }
 }

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class AddDogActivity extends AppCompatActivity {
 
-    private EditText edtIDPet;
+    private EditText edtChungLoai;
     private EditText edtNamePet;
     private EditText edtSoluong;
     private EditText edtGioitinh;
@@ -38,8 +38,8 @@ public class AddDogActivity extends AppCompatActivity {
         }
     }
     public void init(){
-        edtIDPet = findViewById(R.id.edtIDPet);
         edtNamePet = findViewById(R.id.edtNamePet);
+        edtChungLoai = findViewById(R.id.edtChungLoai);
         edtSoluong = findViewById(R.id.edtSoluong);
         edtGioitinh = findViewById(R.id.edtGioitinh);
         edtTinhtrang = findViewById(R.id.edtTinhtrang);
@@ -48,8 +48,8 @@ public class AddDogActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (edtIDPet.getText().length() == 0 ||
-                        edtNamePet.getText().length() == 0 ||
+                if (edtNamePet.getText().length() == 0 ||
+                        edtChungLoai.getText().length() == 0 ||
                         edtSoluong.getText().length() == 0 ||
                         edtGioitinh.getText().length() == 0 ||
                         edtTinhtrang.getText().length() == 0) {
@@ -57,11 +57,12 @@ public class AddDogActivity extends AppCompatActivity {
 
                 } else {
                     addDogDAO = new AddDogDAO(AddDogActivity.this);
-                    AddDog addDog = new AddDog(edtIDPet.getText().toString(),
-                            edtNamePet.getText().toString(),
+                    AddDog addDog = new AddDog(edtNamePet.getText().toString(),
+                            edtChungLoai.getText().toString(),
                             Integer.parseInt(edtSoluong.getText().toString()),
                             edtGioitinh.getText().toString(),
                             edtTinhtrang.getText().toString());
+
                     try {
                         if (validateForm() > 0) {
                             if (addDogDAO.insertAddDog(addDog) > 0) {
@@ -82,7 +83,7 @@ public class AddDogActivity extends AppCompatActivity {
     }
     public int validateForm() {
         int check = 1;
-        if (edtIDPet.getText().length() == 0 ||
+        if (edtChungLoai.getText().length() == 0 ||
                 edtNamePet.getText().length() == 0 ||
                 edtSoluong.getText().length() == 0 ||
                 edtGioitinh.getText().length() == 0 ||

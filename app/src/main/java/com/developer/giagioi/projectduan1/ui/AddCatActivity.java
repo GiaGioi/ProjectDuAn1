@@ -60,6 +60,7 @@ public class AddCatActivity extends AppCompatActivity {
                             Integer.parseInt(edtSoluong.getText().toString()),
                             edtGioitinh.getText().toString(),
                             edtTinhtrang.getText().toString());
+                            addDogDAO.insertAddDog(addDog);
                     try {
                         if (validateForm() > 0) {
                             if (addDogDAO.insertAddDog(addDog) > 0) {

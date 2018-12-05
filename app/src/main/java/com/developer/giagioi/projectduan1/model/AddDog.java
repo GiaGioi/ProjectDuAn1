@@ -1,15 +1,16 @@
 package com.developer.giagioi.projectduan1.model;
 
 public class AddDog {
-    private String IDPet;
     private String NamePet;
+    private String ChungLoai;
     private int SoLuong;
     private String GioiTinh;
     private String TinhTrang;
 
-    public AddDog(String IDPet, String namePet, int soLuong, String gioiTinh, String tinhTrang) {
-        this.IDPet = IDPet;
+    public AddDog(String namePet,String chungLoai, int soLuong, String gioiTinh, String tinhTrang) {
+
         NamePet = namePet;
+        ChungLoai = chungLoai;
         SoLuong = soLuong;
         GioiTinh = gioiTinh;
         TinhTrang = tinhTrang;
@@ -17,13 +18,6 @@ public class AddDog {
     public AddDog(){}
 
 
-    public String getIDPet() {
-        return IDPet;
-    }
-
-    public void setIDPet(String IDPet) {
-        this.IDPet = IDPet;
-    }
 
     public String getNamePet() {
         return NamePet;
@@ -31,6 +25,25 @@ public class AddDog {
 
     public void setNamePet(String namePet) {
         NamePet = namePet;
+    }
+
+    @Override
+    public String toString() {
+        return "AddDog{" +
+                ", NamePet='" + NamePet + '\'' +
+                ", ChungLoai='" + ChungLoai + '\'' +
+                ", SoLuong=" + SoLuong +
+                ", GioiTinh='" + GioiTinh + '\'' +
+                ", TinhTrang='" + TinhTrang + '\'' +
+                '}';
+    }
+
+    public String getChungLoai() {
+        return ChungLoai;
+    }
+
+    public void setChungLoai(String chungLoai) {
+        ChungLoai = chungLoai;
     }
 
     public int getSoLuong() {
@@ -57,14 +70,4 @@ public class AddDog {
         TinhTrang = tinhTrang;
     }
 
-    @Override
-    public String toString() {
-        return "AddDog{" +
-                "IDPet='" + IDPet + '\'' +
-                ", NamePet='" + NamePet + '\'' +
-                ", SoLuong='" + SoLuong + '\'' +
-                ", GioiTinh='" + GioiTinh + '\'' +
-                ", TinhTrang='" + TinhTrang + '\'' +
-                '}';
-    }
 }

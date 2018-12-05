@@ -41,8 +41,8 @@ public class CatActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(CatActivity.this, EditDogActivity.class);
                 Bundle b = new Bundle();
-                b.putString("ID", addDogs.get(position).getIDPet());
-                b.putString("NAME", addDogs.get(position).getNamePet());
+                b.putString("ID", addDogs.get(position).getNamePet());
+                b.putString("NAME", addDogs.get(position).getChungLoai());
                 b.putString("SOLUONG", String.valueOf(addDogs.get(position).getSoLuong()));
                 b.putString("GIOITINH", addDogs.get(position).getGioiTinh());
                 b.putString("TINHTRANG", addDogs.get(position).getTinhTrang());

@@ -58,7 +58,7 @@ public class AddDogAdapter extends BaseAdapter {
             holder.imgDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    addDogDAO.deleteAddDogByID(addDogs.get(position).getIDPet());
+                    addDogDAO.deleteAddDogByID(addDogs.get(position).getNamePet());
                     addDogs.remove(position);
                     notifyDataSetChanged();
                 }

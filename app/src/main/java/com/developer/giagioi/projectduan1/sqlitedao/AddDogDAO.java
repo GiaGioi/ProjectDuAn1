@@ -16,7 +16,7 @@ public class AddDogDAO {
     private SQLiteDatabase db;
     private DatabaseHelper dbHelper;
     public static final String TABLE_NAME = "AddDog";
-    public static final String SQL_DOG = "CREATE TABLE AddDog (idpet text primary key, namepet text, soluong int, gioitinh text, tinhtrang text);";
+    public static final String SQL_DOG = "CREATE TABLE AddDog (namepet text primary key, chungloai text, soluong int, gioitinh text, tinhtrang text);";
     public static final String TAG = "AddDogDAO";
 
     public AddDogDAO(Context context) {
@@ -26,10 +26,10 @@ public class AddDogDAO {
 
 
     //insert
-    public int insertAddDog(AddDog addDog) {
+    public long insertAddDog(AddDog addDog) {
         ContentValues values = new ContentValues();
-        values.put("idpet", addDog.getIDPet());
         values.put("namepet", addDog.getNamePet());
+        values.put("chungloai", addDog.getChungLoai());
         values.put("soluong", addDog.getSoLuong());
         values.put("gioitinh", addDog.getGioiTinh());
         values.put("tinhtrang", addDog.getTinhTrang());
@@ -49,8 +49,8 @@ public class AddDogDAO {
         c.moveToFirst();
         while (c.isAfterLast() == false) {
             AddDog ee = new AddDog();
-            ee.setIDPet(c.getString(0));
-            ee.setNamePet(c.getString(1));
+            ee.setNamePet(c.getString(0));
+            ee.setChungLoai(c.getString(1));
             ee.setSoLuong(c.getInt(2));
             ee.setGioiTinh(c.getString(3));
             ee.setTinhTrang(c.getString(4));
@@ -69,8 +69,8 @@ public class AddDogDAO {
         c.moveToFirst();
         while (c.isAfterLast() == false) {
 
-            ee.setIDPet(c.getString(0));
-            ee.setNamePet(c.getString(1));
+            ee.setNamePet(c.getString(0));
+            ee.setChungLoai(c.getString(1));
             ee.setSoLuong(c.getInt(2));
             ee.setGioiTinh(c.getString(3));
             ee.setTinhTrang(c.getString(4));
@@ -84,8 +84,8 @@ public class AddDogDAO {
 
     public int updateAddDog(String idPet, String Namepet, int Soluong, String Gioitinh,String Tinhtrang) {
         ContentValues values = new ContentValues();
-        values.put("idpet", idPet);
-        values.put("namepet",Namepet);
+        values.put("namepet", idPet);
+        values.put("chungloai",Namepet);
         values.put("soluong",Soluong );
         values.put("gioitinh", Gioitinh);
         values.put("tinhtrang", Tinhtrang);
@@ -102,7 +102,7 @@ public class AddDogDAO {
 
     //delete
     public int deleteAddDogByID(String idaddog) {
-        int result = db.delete(TABLE_NAME,"idaddog=?",new String[]{idaddog});
+        int result = db.delete(TABLE_NAME,"namepet=?",new String[]{idaddog});
         if (result == 0)
             return -1;
         return 1;

@@ -1,6 +1,7 @@
 package com.developer.giagioi.projectduan1.ui;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
@@ -69,6 +70,7 @@ public class VaccinationActivity extends AppCompatActivity {
     private void anhXa() {
         edNamePet = findViewById(R.id.edNamePet);
         edSoLuong = findViewById(R.id.edSoLuong);
+        edLoaiThucAn=findViewById(R.id.edLoaiThucAn);
         btnswitch = findViewById(R.id.btnswitch);
         linkanh = findViewById(R.id.linkanh);
         btnchosepicture = findViewById(R.id.btnchosepicture);
@@ -76,30 +78,39 @@ public class VaccinationActivity extends AppCompatActivity {
     }
 
     private void OpenGallery() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, PICK_IMAGE);
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, PICK_IMAGE);
+        }
+//        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//        startActivityForResult(intent, PICK_IMAGE);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && resultCode == PICK_IMAGE) {
-            imageUri = data.getData();
-            image.setImageURI(imageUri);
+//        if (resultCode == RESULT_OK && resultCode == PICK_IMAGE) {
+//            imageUri = data.getData();
+//            image.setImageURI(imageUri);
+//        }
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            image.setImageBitmap(imageBitmap);
         }
     }
 
     public void addVaccin(View view) {
         if (edNamePet.getText().length() == 0 ||
                 edSoLuong.getText().length() == 0 ||
-                edLoaiThucAn.getText().length() == 0){
+                edLoaiThucAn.getText().length() == 0) {
             Toast.makeText(VaccinationActivity.this, "Bạn phải nhập đủ thông tin ", Toast.LENGTH_SHORT).show();
 
         } else {
             vaccinDAO = new VaccinDAO(VaccinationActivity.this);
             Vaccin vaccin = new Vaccin(edNamePet.getText().toString(),
-                    edLoaiThucAn.getText().toString(),
-                    Integer.parseInt(edSoLuong.getText().toString()));
+                    edSoLuong.getText().toString(),
+                    Integer.parseInt(edLoaiThucAn.getText().toString()));
             try {
                 if (validateForm() > 0) {
                     if (vaccinDAO.insertVaccin(vaccin) > 0) {

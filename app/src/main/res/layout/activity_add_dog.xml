@@ -45,14 +45,14 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="4dp"
+            android:imeActionId="50"
             android:layout_marginRight="4dp">
 
             <EditText
-                android:id="@+id/edtIDPet"
+                android:id="@+id/edtNamePet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/IDpet"
-                android:imeActionId="50"
                 android:imeOptions="actionUnspecified"
                 android:maxLines="1"
                 android:singleLine="true" />
@@ -68,7 +68,7 @@
             android:layout_marginRight="4dp">
 
             <EditText
-                android:id="@+id/edtNamePet"
+                android:id="@+id/edtChungLoai"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/Namepet"
